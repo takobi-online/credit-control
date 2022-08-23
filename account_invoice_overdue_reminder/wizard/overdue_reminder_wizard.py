@@ -286,6 +286,10 @@ class OverdueReminderStep(models.TransientModel):
     reminder_type = fields.Selection(
         '_reminder_type_selection', default='mail',
         string='Reminder Type', required=True)
+    reminder_notes = fields.Text(
+        string="Reminder Notes",
+        translate=True,
+    )
     mail_cc_partner_ids = fields.Many2many('res.partner', string='Cc')
     mail_subject = fields.Char(string='Subject')
     mail_body = fields.Html()
@@ -464,6 +468,8 @@ class OverdueReminderStep(models.TransientModel):
                 vals = rec.validate_phone()
             elif rec.reminder_type == 'post':
                 vals = rec.validate_post()
+            elif rec.reminder_type == 'other':
+                vals = rec.validate_other()
             rec._prepare_overdue_reminder_action(vals)
             orao.create(vals)
             if rec.create_activity:
@@ -545,6 +551,17 @@ class OverdueReminderStep(models.TransientModel):
             raise UserError(_(
                 "Remind letter hasn't been printed!"))
         return {}
+
+    def validate_other(self):
+        self.ensure_one()
+        if not self.reminder_notes:
+            raise UserError(
+                _("Please fill the Reminder Notes")
+            )
+        vals = {
+            'reminder_notes': self.reminder_notes,
+            }
+        return vals
 
     def _prepare_overdue_reminder_action(self, vals):
         vals.update({
