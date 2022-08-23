@@ -836,6 +836,7 @@ msgstr "Nota"
 #. module: account_invoice_overdue_reminder
 #: model_terms:ir.ui.view,arch_db:account_invoice_overdue_reminder.account_invoice_overdue_reminder_form
 #: model_terms:ir.ui.view,arch_db:account_invoice_overdue_reminder.overdue_reminder_action_form
+#: model_terms:ir.ui.view,arch_db:account_invoice_overdue_reminder.overdue_reminder_step_form
 msgid "Notes"
 msgstr "Note"
 
@@ -883,6 +884,12 @@ msgstr "Rif. ordine"
 #: model_terms:ir.ui.view,arch_db:account_invoice_overdue_reminder.report_overdue_reminder_document
 msgid "Order Ref."
 msgstr "Rif. ordine"
+
+#. module: account_invoice_overdue_reminder
+#: code:addons/account_invoice_overdue_reminder/models/overdue_reminder_action.py:53
+#, python-format
+msgid "Other"
+msgstr "Altro"
 
 #. module: account_invoice_overdue_reminder
 #: model:ir.model.fields,field_description:account_invoice_overdue_reminder.field_account_invoice__overdue
@@ -1021,6 +1028,12 @@ msgid "Phone"
 msgstr "Telefono"
 
 #. module: account_invoice_overdue_reminder
+#: code:addons/account_invoice_overdue_reminder/wizard/overdue_reminder_wizard.py:556
+#, python-format
+msgid "Please fill the Reminder Notes"
+msgstr "Compilare le note del promemoria"
+
+#. module: account_invoice_overdue_reminder
 #: model_terms:ir.ui.view,arch_db:account_invoice_overdue_reminder.account_invoice_overdue_reminder_search
 #: model_terms:ir.ui.view,arch_db:account_invoice_overdue_reminder.overdue_reminder_action_search
 msgid "Post"
@@ -1052,6 +1065,12 @@ msgstr "Promemoria"
 #: model:ir.model.fields,field_description:account_invoice_overdue_reminder.field_overdue_reminder_action__mail_id
 msgid "Reminder E-mail"
 msgstr "E-mail promemoria"
+
+#. module: account_invoice_overdue_reminder
+#: model:ir.model.fields,field_description:account_invoice_overdue_reminder.field_overdue_reminder_action__reminder_notes
+#: model:ir.model.fields,field_description:account_invoice_overdue_reminder.field_overdue_reminder_step__reminder_notes
+msgid "Reminder Notes"
+msgstr "Note promemoria"
 
 #. module: account_invoice_overdue_reminder
 #: model:ir.model.fields,field_description:account_invoice_overdue_reminder.field_overdue_reminder_step__reminder_type
